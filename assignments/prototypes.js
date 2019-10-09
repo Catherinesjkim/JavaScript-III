@@ -20,9 +20,11 @@ function GameObject(attributes) {
   this.name = attributes.name;
   this.dimensions = attributes.dimensions;
 }
+
 GameObject.prototype.destroy = function() {
   return `${this.name} was removed from the game.`;
 };
+
 /*
   === CharacterStats ===
   * healthPoints
@@ -31,11 +33,10 @@ GameObject.prototype.destroy = function() {
 */
 function CharacterStats(charAttrs) {
   GameObject.call(this, charAttrs);
-  this.name = charAttrs.name;
   this.healthPoints = charAttrs.healthPoints;
 };
 
-CharacterStats.protoytpe = Object.create(GameObject.prototype);
+CharacterStats.prototype = Object.create(GameObject.prototype);
 
 CharacterStats.prototype.takeDamage = function() {
   return `${this.name} took damage.`;
@@ -56,7 +57,6 @@ function Humanoid(humanAttrs) {
   this.language = humanAttrs.language;
 }
 Humanoid.prototype = Object.create(CharacterStats.prototype);
-
 Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
@@ -117,9 +117,9 @@ Humanoid.prototype.greet = function () {
     language: 'Elvish',
   });
 
-  // console.log(mage.createdAt); // Today's date
+  //console.log(mage.createdAt); // Today's date
   // console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-  // console.log(swordsman.healthPoints); // 15
+  //console.log(swordsman.healthPoints); // 15
   // console.log(mage.name); // Bruce
   // console.log(swordsman.team); // The Round Table
   // console.log(mage.weapons); // Staff of Shamalama
@@ -132,4 +132,5 @@ Humanoid.prototype.greet = function () {
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+  
 
