@@ -3,9 +3,9 @@
 
 * The four rules presented for determining what 'this' in JS points to boil down to one simple questions: What is the calling object?
 
-* 1. Default/Window binding: Is the function called in the global scope?When a function is contained in the global scope, the value of 'this' inside of that function will be the window object. 
+* 1. Default/Window binding: Is the function called in the global scope? Window binding is like the forest of trees, not sure which one we are pointing at, so we point at the forest. 
 
-* 2. Implicit binding: Is the function called by call(), apply(), bind(), or .speak()? When a function is called by a preceding dot, the object before the dot is 'this'.
+* 2. Implicit binding: Is the function called by call(), apply(), bind(), or .speak()? Automatic with objects in methods. When a function is called by a preceding dot, the object before the dot is 'this'. 
 
 * 3. New binding: Is the function called by new? When a constructor function is used, this refers to the specific instance of the object that is created and returned by the constructor function. 
 
@@ -23,7 +23,7 @@ function greetMe(name) {
 // greetMe('Catherine'); // Window
 
 // Principle 2
-// code example for Implicit Binding
+// code example for Implicit (Automatic) Binding
 var greetMe = {
   greeting: 'Hello ',
   speak: function(name) {
@@ -31,7 +31,7 @@ var greetMe = {
     console.log(this);
   }
 }
-// greetMe.speak('Catherine');
+greetMe.speak('Catherine');
 
 // Principle 3
 // code example for New Binding 
@@ -52,10 +52,10 @@ var greetJustin = new GreetMe('Justin');
 // Principle 4
 // code example for Explicit Binding - Using call/apply/bind
 function greet() {
-  console.log(this.name);
+  // console.log(this.name);
 }
 
 var person = {
   name: 'Catherine'
 }
-greet.call(person);
+// greet.call(person);
