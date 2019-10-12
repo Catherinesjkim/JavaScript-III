@@ -94,18 +94,18 @@ function Hero(heroAttrs) {
   this.opponentHealth = heroAttrs.opponentHealth;
 }
 //Inherit
-Hero.prototype = Object.create(Humanoid.prototype);
+Humanoid.prototype = Object.create(Humanoid.prototype);
 
 // Mehods
-Hero.prototype.codeHard = function () {
+Humanoid.prototype.codeHard = function () {
   this.opponentHealth -= 10;
   return `The hero ${this.name} codes hard.`;
 }
-Hero.prototype.workHard = function () {
+Humanoid.prototype.workHard = function () {
   this.opponentHealth -= 15;
   return `The hero ${this.name} works hard.`;
 }
-Hero.prototype.victory = function () {
+Humanoid.prototype.victory = function () {
   this.opponentHealth -= 20;
   return `The hero learns to code using her weapons ${this.weapons}... defeats the villain.`;
 }
@@ -185,7 +185,7 @@ Hero.prototype.victory = function () {
     opponentHealth: 100
   });
 
-  const hero = new Hero({
+  const hero = new Humanoid({
     createdAt: new Date(),
     dimensions: {
       length: 4,
@@ -205,16 +205,16 @@ Hero.prototype.victory = function () {
     opponentHealth: 100,
   });
 
-  //console.log(mage.createdAt); // Today's date
-  // console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-  //console.log(swordsman.healthPoints); // 15
-  // console.log(mage.name); // Bruce
-  // console.log(swordsman.team); // The Round Table
-  // console.log(mage.weapons); // Staff of Shamalama
-  // console.log(archer.language); // Elvish
-  // console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-  // console.log(mage.takeDamage()); // Bruce took damage.
-  // console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+console.log(mage.createdAt); // Today's date
+console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+console.log(swordsman.healthPoints); // 15
+console.log(mage.name); // Bruce
+console.log(swordsman.team); // The Round Table
+console.log(mage.weapons); // Staff of Shamalama
+console.log(archer.language); // Elvish
+console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+console.log(mage.takeDamage()); // Bruce took damage.
+console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
 console.log("A new battle is about to begin!");
 console.log(`The match ${hero.name} vs ${villain.name} has begun.`);
