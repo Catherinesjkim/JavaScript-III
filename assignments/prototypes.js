@@ -94,19 +94,20 @@ function Hero(heroAttrs) {
   this.opponentHealth = heroAttrs.opponentHealth;
 }
 //Inherit
-Humanoid.prototype = Object.create(Humanoid.prototype);
+Hero.prototype = Object.create(Humanoid.prototype);
 
-// Mehods
-Humanoid.prototype.codeHard = function () {
-  this.opponentHealth -= 10;
+// Methods
+Hero.prototype.codeHard = function () {
+  this.opponentHealth -= 1;
   return `The hero ${this.name} codes hard.`;
 }
-Humanoid.prototype.workHard = function () {
-  this.opponentHealth -= 15;
+Hero.prototype.workHard = function () {
+  this.opponentHealth -= 5;
   return `The hero ${this.name} works hard.`;
 }
-Humanoid.prototype.victory = function () {
-  this.opponentHealth -= 20;
+
+Hero.prototype.victory = function () {
+  this.opponentHealth -= 10;
   return `The hero learns to code using her weapons ${this.weapons}... defeats the villain.`;
 }
 
@@ -173,7 +174,7 @@ Humanoid.prototype.victory = function () {
       width: 2,
       height: 4,
     },
-    healthPoints: 6,
+    healthPoints: 20,
     name: 'Brutal',
     team: 'Hell',
     weapons: [
@@ -182,10 +183,10 @@ Humanoid.prototype.victory = function () {
     ],
     language: 'Devil Tongue',
     badBreath: 'funky breath',
-    opponentHealth: 100
+    opponentHealth: 10
   });
 
-  const hero = new Humanoid({
+  const hero = new Hero({
     createdAt: new Date(),
     dimensions: {
       length: 4,
@@ -193,37 +194,40 @@ Humanoid.prototype.victory = function () {
       height: 5,
     },
     healthPoints: 20,
-    name: 'Catherine',
+    name: 'Cat',
     team: 'Forest Kingdom',
     weapons: [
       'Giant Sword',
-      'Shield',
-      'Dragons',
-      'grit'
+      ' Shield',
+      ' Dragons',
+      ' grit' 
     ],
     language: 'JavaScript',
-    opponentHealth: 100,
+    opponentHealth: 10,
   });
 
-console.log(mage.createdAt); // Today's date
-console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-console.log(swordsman.healthPoints); // 15
-console.log(mage.name); // Bruce
-console.log(swordsman.team); // The Round Table
-console.log(mage.weapons); // Staff of Shamalama
-console.log(archer.language); // Elvish
-console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-console.log(mage.takeDamage()); // Bruce took damage.
-console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+// console.log(mage.createdAt); // Today's date
+// console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+// console.log(swordsman.healthPoints); // 15
+// console.log(mage.name); // Bruce
+// console.log(swordsman.team); // The Round Table
+// console.log(mage.weapons); // Staff of Shamalama
+// console.log(archer.language); // Elvish
+// console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+// console.log(mage.takeDamage()); // Bruce took damage.
+// console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
 console.log("A new battle is about to begin!");
-console.log(`The match ${hero.name} vs ${villain.name} has begun.`);
-console.log(`The villain has the following weapons: ${villain.weapons} `);
-console.log(`The hero has the following weapons ${hero.weapons} `);
-console.log(`The villain has the following extra attribute: ${villain.badBreath} `);
-console.log(`The villain speaks the following language: ${villain.language} `);
-console.log(`The hero speaks the following language: ${hero.language} `);
-console.log(villain.evilLaugh());
-console.log(`${hero.name} has been reduced, ${hero.name} now has ${villain.opponentHealth} less health points`);
-console.log(hero.codeHard());
-// console.log(`${villain.name}` has been reduced, ${villain.name}) now has ${hero.opponentHealth} less health points`);
+// console.log(`The match ${hero.name} vs ${villain.name} has begun.`);
+// console.log(`The villain has the following weapons: ${villain.weapons} `);
+//console.log(`The hero has the following weapons ${hero.weapons} `);
+// console.log(`The villain has the following extra attribute: ${villain.badBreath} `);
+// console.log(`The villain speaks the following language: ${villain.language} `);
+// console.log(`The hero speaks the following language: ${hero.language} `);
+// console.log(villain.evilLaugh());
+// console.log(`${hero.name} has been reduced, ${hero.name} now has ${villain.opponentHealth} less health points.`);
+// console.log(hero.codeHard());
+// console.log(`${villain.name} has been reduced, ${villain.name} now has ${hero.opponentHealth} less health points`);
+// console.log(hero.victory());
+// console.log(`${villain.name} has been reduced ${hero.opponentHealth} health points, now only has ${hero.opponentHealth} hp.`)
+console.log(`${hero.name} WINS AND GETS A NEW JOB WITH HIGHER PAY!`)
